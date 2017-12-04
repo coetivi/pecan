@@ -1,24 +1,24 @@
 # Pecan
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pecan`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+@TODO
 
 ## Installation
 
-Add this line to your application's Gemfile:
+If you don't have ruby on your machine you need to install it first. On Debian you can use:
 
-```ruby
-gem 'pecan'
+```
+$ apt-get install ruby
 ```
 
-And then execute:
+Than you just need to type: 
+```
+$ gem install pecan
+```
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install pecan
+To check that everything went fine use:
+```
+$ pecan -v
+``` 
 
 ## Usage
 
