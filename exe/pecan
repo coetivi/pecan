@@ -1,5 +1,27 @@
 #!/usr/bin/env ruby
 
 require 'pecan'
+require 'optparse'
 
-puts "Hello"
+OptionParser.new do |opts|
+  opts.banner = "Usage: pecan [options]"
+
+  opts.on("-v", "--version", "Shows version") do
+    puts Pecan::VERSION
+    exit
+  end
+
+  opts.on("-h", "--help", "Prints this help") do
+    showHelp(opts)
+  end
+
+  opts.on("", "", "Prints this help") do
+    showHelp(opts)
+  end
+
+  def showHelp(op)
+    puts op
+    exit
+  end
+
+end.parse!
