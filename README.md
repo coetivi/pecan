@@ -22,7 +22,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use `pecan -h` to find usage guideline.
+
+```
+Usage: pecan [options]
+    -v, --version                    Shows version
+    -h, --help                       Prints this help
+```
 
 ## Development
 
