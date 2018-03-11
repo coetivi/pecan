@@ -1,12 +1,12 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "pecan/version"
+require "pecan/info"
 
 Gem::Specification.new do |spec|
   spec.name          = "pecan"
   spec.version       = Pecan::VERSION
-  spec.authors       = ["hajimashi"]
+  spec.authors       = Pecan::AUTHORS
   # spec.email         = [""]
 
   spec.summary       = "Continuous configuration management tool"
