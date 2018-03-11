@@ -4,7 +4,7 @@ require_relative 'pecan/configuration'
 module PecanController
   @@config = Configuration.new
 
-  def self.repositorySet(repositorySSH)
-    @@config.set('repo', repositorySSH)
+  def self.set_repository(repository_ssh)
+    @@config.set('repo', repository_ssh)
   end
 end

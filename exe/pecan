@@ -3,6 +3,8 @@
 require 'pecan'
 require 'optparse'
 
+ARGV << '-h' if ARGV.empty?
+
 global = OptionParser.new do |opts|
   opts.banner = "Usage: pecan [command] [options]"
 
@@ -22,7 +24,6 @@ Commands:
 
 See 'pecan COMMAND -h' for more information on a specific command.
 "
-
 end
 
 commandOptions = {
@@ -30,7 +31,7 @@ commandOptions = {
       opts.banner = "Usage: pecan set-repository [options]"
 
       opts.on("-s", "--set REPOSITORY", "Sets repository to store configuration to") do |repo|
-        PecanController.repositorySet(repo)
+        PecanController.set_repository(repo)
         puts "Current repository: #{repo}"
         exit
       end
@@ -43,5 +44,7 @@ commandOptions = {
 }
 
 global.order!
+
 command = ARGV.shift
+ARGV << '-h' if ARGV.empty?
 commandOptions[command].order!
