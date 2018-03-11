@@ -3,12 +3,6 @@
 require 'pecan'
 require 'optparse'
 
-commandHelp = <<HELP
-Commands:
-   set-repository :     Sets repository to store configuration to
-See 'pecan COMMAND -h' for more information on a specific command.
-HELP
-
 global = OptionParser.new do |opts|
   opts.banner = "Usage: pecan [command] [options]"
 
@@ -22,13 +16,24 @@ global = OptionParser.new do |opts|
     exit
   end
 
-  opts.separator ""
-  opts.separator commandHelp
+  opts.separator "
+Commands:
+   repo :     sets repository to store configuration to
+
+See 'pecan COMMAND -h' for more information on a specific command.
+"
+
 end
 
 commandOptions = {
-    'set-repository' => OptionParser.new do |opts|
+    'repo' => OptionParser.new do |opts|
       opts.banner = "Usage: pecan set-repository [options]"
+
+      opts.on("-s", "--set REPOSITORY", "Sets repository to store configuration to") do |repo|
+        PecanController.repositorySet(repo)
+        puts "Current repository: #{repo}"
+        exit
+      end
 
       opts.on("-h", "--help", "Prints this help") do
         puts opts
@@ -40,9 +45,3 @@ commandOptions = {
 global.order!
 command = ARGV.shift
 commandOptions[command].order!
-
-case command
-  when 'set-repository' then puts "Not implemented yet"
-end
-
-
